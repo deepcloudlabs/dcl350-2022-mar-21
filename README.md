@@ -6,7 +6,7 @@ Please follow the link for the complete training catalog: https://www.deepcloudl
 
 Kurulum Bilgisi:
 ========================================
-Eğitimde lab çalışmaları için gerekli olan çalışma ortamının kurulumu için öncelikle aşağıdaki bağlantıda yer alan sıkıştırılmış dosyayı makinanıza indirmeniz gerekiyor: https://www.deepcloudlabs.com/software/DEVEL-stage-2022a-java.se.and.spring.zip
+Eğitimde lab çalışmaları için gerekli olan çalışma ortamının kurulumu için öncelikle aşağıdaki bağlantıda yer alan sıkıştırılmış dosyayı makinanıza indirmeniz gerekiyor: https://courseware.deepcloudlabs.com/software/DEVEL-stage-2022a-java.se.and.spring.zip
 
 Sıkıştırılmış dosyayı **C:\\** dizinine açtıktan sonra dizin yapısı aşağıda gösterildiği şekilde olacaktır:
 
