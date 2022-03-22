@@ -30,5 +30,11 @@ public final class Salary {
 			throw new IllegalArgumentException("salary must be positive");
 		return new Salary(value, currency);
 	}
+
+	public Salary increment(double rate) {
+		if (rate <= 0.0) 
+			throw new IllegalArgumentException("Rate must be positive.");
+		return Salary.valueOf((1.0 +rate)*this.getValue(), this.getCurrency());
+	}
 	
 }
