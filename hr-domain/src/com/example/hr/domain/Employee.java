@@ -12,7 +12,9 @@ package com.example.hr.domain;
 // DDD: I) Entity Class -> i) Persistent ii) Identity iii) Mutable
 //     II) Value Object
 //    III) Aggregate -> Entity
+@Aggregate
 public class Employee {
+	@IdentityReference
 	private TcKimlikNo identity;
 	private FullName fullName;
 	private Iban iban;
@@ -20,4 +22,5 @@ public class Employee {
 	private Photo photo;
 	private JobStyle jobStyle; // ex: "FULL-TIME", "PART-TIME"
 	private Department department;
+	
 }
