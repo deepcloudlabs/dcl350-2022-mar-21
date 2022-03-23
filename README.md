@@ -14,7 +14,8 @@ Sıkıştırılmış dosyayı **C:\\** dizinine açtıktan sonra dizin yapısı 
 
 Diskinizdeki dizin yapısını yukarıdaki ile karşılaştırarak kontrol ediniz. **C:** sürücünüzün dolu dolması durumunda farklı bir sürücüye sıkıştırılmış dosyayı açabilirsiniz. Ancak bu durumda bir kaç konfigürasyon dosyasında değişiklik yapmanız gerekecektir. Lütfen, eğitim sırasında bu değişikliklerin neler olduğunu eğitmeninize sorunuz. 
 
-## NOTES: INTEGRATING MICROSERVICES 
+NOTES: INTEGRATING MICROSERVICES 
+========================================
 1. REST over HTTP -> @RestController
 REST Client:   
     i. Synchronous -> Blocking
@@ -31,7 +32,8 @@ REST Client:
 5. GraphQL
    BFF (Proxy) + API Gateway -> 1+ MS
    
-## TOPICS IN SPRING CLOUD/CLOUD-NATIVE APPLICATION DEVELOPMENT
+TOPICS IN SPRING CLOUD/CLOUD-NATIVE APPLICATION DEVELOPMENT
+========================================
 Spring Cloud -> Cloud-Native: 
   MSA + EDA + Serverless Architecture
   - Configuration Management
