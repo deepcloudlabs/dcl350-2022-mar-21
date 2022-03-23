@@ -31,3 +31,23 @@ REST Client:
 5. GraphQL
    BFF (Proxy) + API Gateway -> 1+ MS
    
+## TOPICS IN SPRING CLOUD/CLOUD-NATIVE APPLICATION DEVELOPMENT
+Spring Cloud -> Cloud-Native: 
+  MSA + EDA + Serverless Architecture
+  - Configuration Management
+    Spring Cloud Config
+      Config Server -> Git
+      MSA -> Component -> RefreshScope
+      POST 
+    Spring Cloud Bus
+     
+  - Service Discvoery
+  - Client-side Load Balancing
+  - Resilience Patterns: 
+      Retry, TimeLimiter, RateLimiter, BulkHead, CB
+  - Routing
+  - API Gateway
+  - Monitoring
+  - Distributed Logging
+  - Security
+  - Deployment
