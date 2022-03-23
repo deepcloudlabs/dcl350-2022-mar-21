@@ -23,6 +23,20 @@ import com.example.hr.dto.response.UpdateEmployeeSalaryResponse;
 import com.example.hr.service.HrService;
 import com.example.validation.TcKimlikNo;
 
+// REST API Design Approaches:
+// 1. Resource->Model/Entity Oriented
+//    URI/GET,PUT,.../Representation
+//    Representation? HTTP -> Text-based (XML/JSON/SVG/...) ->
+//    Query -> GET
+//    Create -> POST
+//    Update -> PUT/PATCH
+//    Remove -> DELETE
+//   3. GraphQL -> Proxy -> 1+ MS
+//    Client -- Schema ->
+// 2. RPC-style
+//    gRPC -> Protocol Buffer 
+//    Spring for gRPC
+//    URL -> method name -> Command
 @RestController
 @RequestScope
 @RequestMapping("employees")
