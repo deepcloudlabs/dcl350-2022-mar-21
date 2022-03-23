@@ -4,6 +4,7 @@ import java.util.List;
 
 public class StudyObjectPooling {
 	// -Djava.lang.Integer.IntegerCache.high=4096
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		int x = 42; // 4-Byte
 		// Auto-boxing
