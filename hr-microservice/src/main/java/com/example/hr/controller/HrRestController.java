@@ -36,22 +36,35 @@ public class HrRestController {
 	public HrRestController(HrService hrService) {
 		this.hrService = hrService;
 	}
-
+    // 1. HTTP Method: GET, POST, PUT, PATCH, DELETE, ...
+	// 2. URL
+	// GET http://localhost:8100/hr/api/v1/employees/11111111110
 	@GetMapping("{identity}")
-	public EmployeeResponse getEmployeeByIdentity(@PathVariable @TcKimlikNo String identity) {		
+	public EmployeeResponse findById(@PathVariable @TcKimlikNo String identity) {		
 		return hrService.findEmployee(identity);
 	}
-	
+
+	/* GET http://localhost:8100/hr/api/v1/employees
+	@GetMapping
+	public List<EmployeeResponse> findAllEmployeesByPage(
+			@RequestParam @Min(0) int pageNo,
+			@RequestParam @Max(25) int pageSize) {		
+		return hrService.findAll(pageNo,pageSize);
+	}
+	*/
+	// POST /
 	@PostMapping
 	public HireEmployeeResponse hireEmployee(@RequestBody @Validated HireEmployeeRequest request) {
 		return hrService.hireEmployee(request);
 	}
 	
+	// DELETE /11111111110
 	@DeleteMapping("{identity}")
 	public FireEmployeeResponse fireEmployee(@PathVariable @TcKimlikNo String identity) {
 		return hrService.fireEmployee(identity);
 	}
 	
+	// PUT /
 	// /employees?department=SALES&rate=12.0
 	@PutMapping(params = {"department", "rate"})
 	public UpdateEmployeeSalaryResponse updateEmployeeSalary(
