@@ -6,6 +6,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableScheduling
 public class RestClientConfig {

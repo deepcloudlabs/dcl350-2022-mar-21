@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.AsyncRestTemplate;
 
+@SuppressWarnings("deprecation")
 @Service
 @ConditionalOnProperty(name = "client", havingValue = "async")
 public class HrAsyncRestClient {
