@@ -13,3 +13,21 @@ Sıkıştırılmış dosyayı **C:\\** dizinine açtıktan sonra dizin yapısı 
 ![Installation folder](DEVEL-stage.png?raw=true "C: drive after decompress DEVEL-stage-2022a-java.se.and.spring.zip")
 
 Diskinizdeki dizin yapısını yukarıdaki ile karşılaştırarak kontrol ediniz. **C:** sürücünüzün dolu dolması durumunda farklı bir sürücüye sıkıştırılmış dosyayı açabilirsiniz. Ancak bu durumda bir kaç konfigürasyon dosyasında değişiklik yapmanız gerekecektir. Lütfen, eğitim sırasında bu değişikliklerin neler olduğunu eğitmeninize sorunuz. 
+
+# NOTES: INTEGRATING MICROSERVICES 
+1. REST over HTTP -> @RestController
+REST Client:   
+    i. Synchronous -> Blocking
+       RestTemplate
+   ii. Asynchronous -> Observer -> Callback
+       AsyncRestTemplate (Deprecated) (since Spring 5)
+       Reactive Client -> WebClient (Spring 5+)	
+2. REST over WebSocket (Event) (RT Web Programming)
+   Client -- connection --> Service/Server/Provider
+3. Messaging (Event) -> AMQP (RabbitMQ), Kafka, ...
+   Client --> MS <-- Service
+4. RPC-style REST API 
+   gRPC -> Protocol Buffer
+5. GraphQL
+   BFF (Proxy) + API Gateway -> 1+ MS
+   
