@@ -2,6 +2,7 @@ package com.example.lottery.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,8 @@ import com.example.lottery.service.LotteryService;
 public class LotteryController {
 
 	private final LotteryService lotteryService;
+	@Value("${server.port}")
+	private int serverPort;
 
 	public LotteryController(LotteryService lotteryService) {
 		this.lotteryService = lotteryService;
@@ -27,6 +30,7 @@ public class LotteryController {
 
 	@GetMapping
 	public List<List<Integer>> getLotteryNumbers(@RequestParam int column){
+		System.err.println("New request has arrived at port "+serverPort);
 		return lotteryService.draw(column);
 	}
 }
