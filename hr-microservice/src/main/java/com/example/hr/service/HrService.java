@@ -5,6 +5,8 @@ import java.util.Optional;
 import javax.validation.constraints.Positive;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -30,6 +32,7 @@ public class HrService {
 		this.modelMapper = modelMapper;
 	}
 
+	@Cacheable(cacheNames="employees",key = "#identity")
 	public EmployeeResponse findEmployee(String identity) {
 		Optional<Employee> employee = hrApplication.getEmployeeInformation(TcKimlikNo.valueOf(identity));
 		// Employee -- Model Mapper --> EmployeeResponse
@@ -46,6 +49,7 @@ public class HrService {
 	}
 
 	@Transactional
+	@CacheEvict(cacheNames = "employees",key = "#identity")
 	public FireEmployeeResponse fireEmployee(String identity) {
 		hrApplication.fireEmployee(TcKimlikNo.valueOf(identity))
 		             .orElseThrow( () -> new IllegalArgumentException("Cannot find employee to fire"));
@@ -53,6 +57,7 @@ public class HrService {
 	}
 
 	@Transactional
+	@CacheEvict(cacheNames = "employees",key = "#identity")
 	public UpdateEmployeeSalaryResponse increaseDepartmentSalaries(String department, @Positive double rate) {
 		var employees = hrApplication.increaseSalaryOfDepartmentEmployees(Department.valueOf(department), rate);
 		return new UpdateEmployeeSalaryResponse("ok", employees.size());
