@@ -6,7 +6,8 @@ import java.util.concurrent.CompletableFuture;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
+import io.github.resilience4j.bulkhead.annotation.Bulkhead.Type;
 
 @Service
 public class LotteryConsumerService {
@@ -14,7 +15,8 @@ public class LotteryConsumerService {
 
 	// @Retry(name = "lottery", fallbackMethod = "getLotteryNumbersFallback")
 	// @RateLimiter(name = "lottery", fallbackMethod = "getLotteryNumbersFallback")
-	@CircuitBreaker(name = "lottery", fallbackMethod = "getLotteryNumbersFallback")
+	//@CircuitBreaker(name = "lottery", fallbackMethod = "getLotteryNumbersFallback")
+	@Bulkhead(name = "lottery",type = Type.SEMAPHORE, fallbackMethod = "getLotteryNumbersFallback")
 	public String getLotteryNumbers() {
 		var restTemplate = new RestTemplate();
 		return restTemplate.getForEntity(LOTTERY_API_URL, String.class).getBody();
