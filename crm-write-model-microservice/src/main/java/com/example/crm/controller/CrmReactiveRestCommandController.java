@@ -17,6 +17,7 @@ import com.example.crm.dto.response.AcquireCustomerResponse;
 import com.example.crm.dto.response.ReleaseCustomerResponse;
 import com.example.crm.dto.response.UpdateCustomerResponse;
 import com.example.crm.service.CustomerReactiveCommandService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import reactor.core.publisher.Mono;
 
@@ -32,17 +33,17 @@ public class CrmReactiveRestCommandController {
 	}
 	
 	@PostMapping
-	public Mono<AcquireCustomerResponse> addCustomer(@RequestBody AcquireCustomerCommand command){
+	public Mono<AcquireCustomerResponse> addCustomer(@RequestBody AcquireCustomerCommand command) throws JsonProcessingException{
 		return customerService.createCustomer(command);
 	}
 	
 	@PutMapping
-	public Mono<UpdateCustomerResponse> updateCustomer(@RequestBody UpdateCustomerCommand command){
+	public Mono<UpdateCustomerResponse> updateCustomer(@RequestBody UpdateCustomerCommand command) throws JsonProcessingException{
 		return customerService.updateCustomer(command);
 	}
 	
 	@DeleteMapping("{identity}")
-	public Mono<ReleaseCustomerResponse> deleteCustomer(@PathVariable String identity,@RequestParam String conversationId){
+	public Mono<ReleaseCustomerResponse> deleteCustomer(@PathVariable String identity,@RequestParam String conversationId) throws JsonProcessingException{
 		return customerService.removeCustomer(identity,conversationId);
 	}
 }

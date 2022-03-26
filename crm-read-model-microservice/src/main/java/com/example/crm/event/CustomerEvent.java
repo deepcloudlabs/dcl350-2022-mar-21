@@ -13,6 +13,7 @@ public abstract class CustomerEvent {
 	private int sequenceId;
 	private String customerId;
 	private Object eventData;
+	private CustomerEventType eventType;
 	
 	public CustomerEvent() {
 	}
@@ -61,6 +62,14 @@ public abstract class CustomerEvent {
 
 	public void setEventData(Object eventData) {
 		this.eventData = eventData;
+	}
+
+	public CustomerEventType getEventType() {
+		return eventType;
+	}
+
+	public void setEventType(CustomerEventType eventType) {
+		this.eventType = eventType;
 	}
 
 }
